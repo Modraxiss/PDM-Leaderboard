@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDM Leaderboard</title>
+    <link rel="shortcut icon" type="image/png" href="./Images/icon.png">
+    <link rel="stylesheet" href="./CSS/fonts.css">
+    <link rel="stylesheet" href="./CSS/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>
+            <i class="sb-icon i-002e text-glow no-select"
+                style="margin-right: 16px;color: gold;transform: rotate(-5deg);"></i>
+            Pro Deathmatch
+            <i class="sb-icon i-002e text-glow no-select"
+                style="margin-left: 16px;color: gold;transform: rotate(5deg);"></i>
+        </h1>
+
+        <span class="options">
+            <i class="sb-icon i-0042 no-select"></i>
+            <div class="menu">
+                <h3 class="header">Options</h3>
+                <div class="option no-select">
+                    <label for="showBlankBadges">Show Blank-Badges</label>
+                    <label class="switch">
+                        <input type="checkbox" id="showBlankBadges">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </span>
+    </header>
+    <main>
+        <div class="region-switch no-select">
+            <button class="region-btn active" data-region="Asia">Asia</button>
+            <button class="region-btn" data-region="Europe">Europe</button>
+            <button class="region-btn" data-region="America">America</button>
+        </div>
+
+        <div class="leaderboard">
+            <div class="leaderboard-header">
+                <div class="playerName">Player</div>
+                <div class="status">
+                    <div>Live Rank</div>
+                    <div>Live Score</div>
+                </div>
+            </div>
+
+            <div id="leaderboard-body"></div>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script type="text/javascript" src="./JS/ecpIcon.js"></script>
+    <script type="text/javascript" src="./JS/main.js"></script>
+</body>
+
+</html>

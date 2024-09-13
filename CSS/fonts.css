@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'STARBLAST';
+    src: url('../Fonts/Starblast.ttf');
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'Starcraft';
+    src: url('../Fonts/Starcraft.ttf');
+    font-weight: normal;
+    font-style: normal
+}
+
+.sb-icon {
+    display: inline-block;
+    font: normal normal normal 14px/1 'STARBLAST';
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.i-002e::before {
+    content: '\002e';
+}
+
+.i-0042::before {
+    content: '\0042';
+}
