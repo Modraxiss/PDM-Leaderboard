@@ -3,6 +3,7 @@
 ::before {
     margin: 0;
     padding: 0;
+    outline-color: #fff;
     box-sizing: border-box;
 }
 
@@ -103,7 +104,6 @@ h1 {
 
 .leaderboard .playerName {
     text-align: left;
-    /* overflow: hidden; */
     white-space: nowrap;
     text-overflow: ellipsis;
     padding-right: 10px;
@@ -173,6 +173,40 @@ h1 {
     100% {
         text-shadow: 0 0 10px #00ffc8;
         background-position: 0%;
+    }
+}
+
+.leaderboard-item .playerName .subspace::after {
+    content: 'SUBSPACE';
+    background: linear-gradient(135deg, #6a1b9a, #9c27b0);
+    color: #ffffffe6;
+    padding: 4px 10px;
+    font-size: 0.65rem;
+    font-family: 'Orbitron', Arial, sans-serif;
+    margin-left: 12px;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px #0003;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    opacity: 0;
+    animation: show-subspace-tag 1s ease forwards;
+    animation-delay: 2s;
+}
+
+@keyframes show-subspace-tag {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
     }
 }
 
