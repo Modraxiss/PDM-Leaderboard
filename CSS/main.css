@@ -11,12 +11,19 @@ body {
     font-family: Arial, sans-serif;
     background-color: #0d0d2b;
     color: #fff;
-    min-width: 100vw;
+    width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
 }
 
-h1 {
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header h1 {
     text-align: center;
     font-size: 3em;
     color: #00ffc6;
@@ -187,15 +194,20 @@ h1 {
     border-radius: 25px;
     box-shadow: 0 4px 8px #0003;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
+    letter-spacing: 3px;
     font-weight: 600;
     display: inline-block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%) scale(0);
+    transform-origin: center left;
     opacity: 0;
     animation: show-subspace-tag 1s ease forwards;
     animation-delay: 2s;
+}
+
+.subspace::after:hover {
+    content: 'cheater';
 }
 
 @keyframes show-subspace-tag {
@@ -332,6 +344,31 @@ h1 {
     }
 }
 
+footer {
+    display: inline-block;
+    position: relative;
+    left: 50%;
+    text-align: center;
+    padding: 10px 15px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    transform: translateX(-50%);
+    border-radius: 25px;
+    font-size: 14px;
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    background: #0d0d2b;
+    color: #00ffc8e6;
+    border: 1px solid #00ffc680;
+    box-shadow: 0 0 15px #00ffc64d;
+    font-family: 'Orbitron', Arial, sans-serif;
+}
+
+footer b {
+    text-shadow: 0 0 5px;
+    font-weight: bold;
+}
+
 .no-select {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -379,6 +416,11 @@ h1 {
     margin: 10px;
 }
 
+.options .icon {
+    transition: 0.5s ease-in-out;
+    text-shadow: 0 0 20px;
+}
+
 .options .menu {
     display: flex;
     align-items: center;
@@ -389,7 +431,7 @@ h1 {
     margin: 5px;
     background-color: #03082255;
     backdrop-filter: blur(10px);
-    border: 1px solid #00ffc6;
+    border: 1px solid rgba(0, 255, 200, 0.7);
     border-radius: 10px;
     padding: 10px;
     z-index: 1000;
@@ -428,6 +470,10 @@ h1 {
     opacity: 1;
     transform: translateX(0px) translateY(0px);
     pointer-events: all;
+}
+
+.options:hover>.icon {
+    opacity: 0;
 }
 
 .switch {
@@ -475,8 +521,30 @@ input:checked+.slider:before {
     transform: translateX(21px);
 }
 
+.loading {
+    margin: 80px 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 3px solid #00ffc6;
+    border-right: 3px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @media (max-width: 768px) {
-    h1 {
+    header h1 {
         font-size: 2em;
     }
 
@@ -490,6 +558,10 @@ input:checked+.slider:before {
         width: 100%;
     }
 
+    .leaderboard .status div {
+        width: 9rem;
+    }
+
     .leaderboard-header {
         padding: 10px 20px;
         font-size: 1em;
@@ -497,6 +569,7 @@ input:checked+.slider:before {
 
     .leaderboard-item {
         padding: 10px 15px;
+        margin: 0;
     }
 
     .leaderboard-item .playerName {
@@ -510,24 +583,58 @@ input:checked+.slider:before {
     .leaderboard-item .live-score {
         font-size: 1em;
     }
+
+    .options .menu {
+        width: 100vw;
+    }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1.5em;
+    header h1 {
+        font-size: 1.1em;
+    }
+
+    .region-switch {
+        margin: 0;
     }
 
     .region-switch button {
-        padding: 6px 10px;
-        font-size: 0.9em;
+        padding: 4px 8px;
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+
+    .leaderboard .status div {
+        width: 6rem;
+    }
+
+    .leaderboard-header {
+        padding: 5px 15px;
+        font-size: 0.7em;
+    }
+
+    .leaderboard-item {
+        padding: 10px;
     }
 
     .leaderboard-item .playerName {
-        font-size: 0.9em;
+        font-size: 0.7em;
+        gap: 8px;
     }
 
     .leaderboard-item .ecpIcon {
-        display: none;
+        width: 40px;
+        height: auto;
+    }
+
+    .leaderboard-item .rank.trophy::before {
+        font-size: 1.8rem;
+        top: -6px;
+    }
+
+    .leaderboard .rank.trophy span {
+        top: -6px;
+        font-size: 14px;
     }
 
     .leaderboard-item .rank {
@@ -535,7 +642,24 @@ input:checked+.slider:before {
     }
 
     .leaderboard-item .live-score {
-        font-size: 0.9em;
+        font-size: 0.8em;
+    }
+
+    .leaderboard-item .playerName .subspace::after {
+        padding: 2px 8px;
+        font-size: 0.5rem;
+    }
+
+    .options .icon {
+        font-size: 0.95em;
+    }
+
+    footer {
+        font-size: 0.7em;
+        margin-top: 0;
+        padding: 6px 10px;
+        word-spacing: 2.5px;
+        letter-spacing: 1.5px;
     }
 }
 
