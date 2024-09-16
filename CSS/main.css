@@ -369,11 +369,18 @@ footer {
     border: 1px solid #00ffc680;
     box-shadow: 0 0 15px #00ffc64d;
     font-family: 'Orbitron', Arial, sans-serif;
+    transition: 0.5s;
 }
 
 footer b {
     text-shadow: 0 0 5px;
     font-weight: bold;
+}
+
+footer:hover {
+    color: #0d0d2b;
+    background-color: #00ffc8e6;
+    box-shadow: 0 0 30px #00ffc8;
 }
 
 .no-select {
