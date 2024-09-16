@@ -603,7 +603,7 @@ input:checked+.slider:before {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 446px) {
     header h1 {
         font-size: 1.1em;
     }
