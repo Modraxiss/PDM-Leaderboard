@@ -194,7 +194,7 @@ header h1 {
     }
 }
 
-.leaderboard-item .playerName .subspace::after {
+/* .leaderboard-item .playerName .subspace::after {
     content: 'SUBSPACE';
     background: linear-gradient(135deg, #6a1b9a, #9c27b0);
     color: #ffffffe6;
@@ -227,7 +227,7 @@ header h1 {
         opacity: 1;
         transform: translateY(-50%) scale(1);
     }
-}
+} */
 
 .leaderboard-item .ecpIcon {
     width: 80px;

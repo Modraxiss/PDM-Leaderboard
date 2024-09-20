@@ -55,12 +55,12 @@ function createLeaderboardItem(player, rank) {
     const color = getColorBasedOnECP(player.ecp.finish);
     const badgeClass = rank <= 3 ? 'badge-shadow' : '';
     const textClass = rank === 1 ? 'textParticle' : '';
-    const subspaceClass = player.id === '5a03846a0a6d212bf327f57b' ? 'subspace' : '';
+    // const subspaceClass = player.id === '5a03846a0a6d212bf327f57b' ? 'subspace' : '';
 
     leaderboardItem.innerHTML = `
                 <div class="playerName">
                     <img style="opacity: 0;${rank <= 3 ? `color: ${color};` : "filter: drop-shadow(2px 4px 6px #000);"}" class="ecpIcon no-select ${badgeClass}" src="" data-id="${player.id}">
-                    <span class="${textClass} ${subspaceClass}">${player.name}</span>
+                    <span class="${textClass}">${player.name}</span>
                 </div>
                 <div class="status">
                     <div class="${rank <= 3 ? `rank trophy no-select text-glow ${getRankClass(rank)}` : 'rank'}">
@@ -169,7 +169,7 @@ function initialize() {
     handleBlankBadgesSetting();
 
     fetchLeaderboardData();
-    setInterval(fetchLeaderboardData, 1000);
+    setInterval(fetchLeaderboardData, 3000);
 }
 
 initialize();
