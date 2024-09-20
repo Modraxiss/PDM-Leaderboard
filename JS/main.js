@@ -74,7 +74,7 @@ function createLeaderboardItem(player, rank) {
 
 function getColorBasedOnECP(finish) {
     switch (finish) {
-        case "gold": return "#9b4a1b";
+        case "gold": return "#ffaa00";
         case "titanium": return "#999999";
         case "alloy": return "#e4e5e5";
         case "carbon": return "#464646";
