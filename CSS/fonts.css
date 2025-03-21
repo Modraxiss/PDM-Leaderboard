@@ -28,3 +28,15 @@
 .i-0042::before {
     content: '\0042';
 }
+
+.i-00be::before {
+    content: '\00be';
+}
+
+.i-007b::before {
+    content: '\007b';
+}
+
+.i-00a3::before {
+    content: '\00a3';
+}

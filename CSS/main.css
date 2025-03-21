@@ -1,19 +1,62 @@
+:root {
+    --Main-Hue: 200;
+    --color-lightest: hsl(var(--Main-Hue), 97%, 70%);
+    --color-light: hsl(var(--Main-Hue), 66%, 61%);
+    --color-medium-light: hsl(var(--Main-Hue), 46%, 52%);
+    --color-medium: hsl(var(--Main-Hue), 42%, 43%);
+    --color-medium-dark: hsl(var(--Main-Hue), 42%, 35%);
+    --color-dark: hsl(var(--Main-Hue), 42%, 26%);
+    --color-darker: hsl(var(--Main-Hue), 43%, 17%);
+    --color-darkest: hsl(var(--Main-Hue), 43%, 8%);
+}
+
 *,
 ::after,
 ::before {
     margin: 0;
     padding: 0;
-    outline-color: #fff;
+    outline: none;
     box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #0d0d2b;
+    background-color: var(--color-darkest);
     color: #fff;
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
+}
+
+.background-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 48vw;
+    color: hsl(var(--Main-Hue), 97%, 70%, 0.05);
+    text-shadow: 0 0 20px;
+    pointer-events: none;
+    animation: background-overlay 15s linear infinite;
+}
+
+@keyframes background-overlay {
+     0% {
+        transform: rotate(0deg);
+     }
+     33% {
+        transform: rotate(2deg);
+     }
+     66% {
+        transform: rotate(-2deg);
+     }
+     100% {
+        transform: rotate(0deg);
+     }
 }
 
 main {
@@ -26,9 +69,9 @@ main {
 header h1 {
     text-align: center;
     font-size: 3em;
-    color: #00ffc6;
+    color: var(--color-lightest);
     text-transform: uppercase;
-    margin: 10px 0;
+    margin: 18px 0 20px 0;
     letter-spacing: 2px;
     text-shadow: 0 0 10px, 0 0 40px;
     font-family: 'Starcraft', 'Orbitron', Arial, sans-serif;
@@ -36,36 +79,35 @@ header h1 {
 
 .region-switch {
     text-align: center;
-    margin-bottom: 10px;
 }
 
 .region-switch button {
     margin: 0 10px;
     padding: 10px 20px;
-    background-color: #00ffc6;
-    color: #030822;
+    background-color: var(--color-lightest);
+    color: var(--color-darker);
     border: none;
     cursor: pointer;
     border-radius: 10px;
     font-size: 1.2em;
-    transition: 0.3s;
+    transition: 0.3s ease;
     text-transform: uppercase;
     font-family: 'Orbitron', sans-serif;
 }
 
 .region-switch button:hover {
-    box-shadow: 0 0 20px #00ffc6;
+    transform: scale(1.04);
 }
 
 .region-switch button:active {
-    box-shadow: 0 0 10px #00b386;
+    transform: scale(0.98);
 }
 
 .region-switch button.active {
     background-color: #ff4d4d;
     color: #fff;
     text-shadow: 0 0 10px;
-    box-shadow: none;
+    transform: scale(1);
     cursor: no-drop;
 }
 
@@ -74,26 +116,26 @@ header h1 {
     flex-direction: column;
     width: 90%;
     margin: 30px auto;
-    border-radius: 12px;
-    background-color: #121233;
-    box-shadow: 0 0 30px rgba(0, 255, 198, 0.3);
-    transition: 0.8s;
+    border-radius: 14px;
+    background-color: var(--color-darkest);
+    box-shadow: 0 0 30px var(--color-medium-dark);
+    transition: 0.8s ease-out;
 }
 
 .leaderboard-header {
     justify-content: space-between;
     padding: 10px 40px;
     position: sticky;
-    top: 0;
+    top: 0px;
+    right: 0px;
     font-weight: bold;
-    background-color: #00ffc6;
-    color: #030822;
+    background-color: var(--color-light);
+    color: var(--color-darkest);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 1.2em;
-    text-shadow: 0 0 10px #00ffc6;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
     font-family: 'Orbitron', Arial, sans-serif;
     z-index: 999;
 }
@@ -134,14 +176,12 @@ header h1 {
 
 .leaderboard-item {
     justify-content: space-between;
-    color: #00ffc6;
-    padding: 15px 20px;
+    color: var(--color-lightest);
+    padding: 15px 40px;
 }
 
 .leaderboard-item {
-    padding: 15px 20px;
-    margin: 0 20px;
-    border-bottom: 1px solid hsla(167, 100%, 50%, 0.2);
+    border-bottom: 1px solid var(--color-darker);
     transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -150,9 +190,7 @@ header h1 {
 }
 
 .leaderboard-item:hover {
-    background: hsl(180, 100%, 10%, 0.4);
-    border-radius: 5px;
-    transform: scale(1.01);
+    background: var(--color-darker);
 }
 
 .leaderboard-item .playerName {
@@ -163,7 +201,7 @@ header h1 {
 
 .leaderboard-item .playerName>span {
     color: transparent;
-    background: linear-gradient(90deg, #00ffc6 50%, transparent 51%);
+    background: linear-gradient(90deg, var(--color-lightest) 50%, transparent 51%);
     background-clip: text;
     background-repeat: no-repeat;
     background-position: 200%;
@@ -171,14 +209,13 @@ header h1 {
     animation: idk 8s linear(0 0%, 0 1.8%, 0.01 3.6%, 0.03 6.35%, 0.07 9.1%, 0.13 11.4%, 0.19 13.4%, 0.27 15%, 0.34 16.1%, 0.54 18.35%, 0.66 20.6%, 0.72 22.4%, 0.77 24.6%, 0.81 27.3%, 0.85 30.4%, 0.88 35.1%, 0.92 40.6%, 0.94 47.2%, 0.96 55%, 0.98 64%, 0.99 74.4%, 1 86.4%, 1 100%) forwards, set-color 1s ease 2s forwards;
 }
 
-/* for emojies in names */
 @keyframes set-color {
     0% {
         color: transparent;
     }
 
     100% {
-        color: #00ffc6;
+        color: var(--color-lightest);
     }
 }
 
@@ -189,12 +226,12 @@ header h1 {
     }
 
     100% {
-        text-shadow: 0 0 10px #00ffc8;
+        text-shadow: 0 0 10px var(--color-lightest);
         background-position: 0%;
     }
 }
 
-/* .leaderboard-item .playerName .subspace::after {
+.leaderboard-item .playerName .subspace::after {
     content: 'SUBSPACE';
     background: linear-gradient(135deg, #6a1b9a, #9c27b0);
     color: #ffffffe6;
@@ -227,7 +264,7 @@ header h1 {
         opacity: 1;
         transform: translateY(-50%) scale(1);
     }
-} */
+}
 
 .leaderboard-item .ecpIcon {
     width: 80px;
@@ -352,35 +389,42 @@ header h1 {
 }
 
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+footer div {
     display: inline-block;
-    position: relative;
-    left: 50%;
     text-align: center;
     padding: 10px 15px;
     margin-top: 10px;
     margin-bottom: 20px;
-    transform: translateX(-50%);
     border-radius: 25px;
     font-size: 14px;
     word-spacing: 5px;
     letter-spacing: 2px;
-    background: #0d0d2b;
-    color: #00ffc8e6;
-    border: 1px solid #00ffc680;
-    box-shadow: 0 0 15px #00ffc64d;
+    background: var(--color-darker);
+    color: var(--color-lightest);
+    box-shadow: 0 0 15px var(--color-darker);
     font-family: 'Orbitron', Arial, sans-serif;
-    transition: 0.5s;
+    transition: 0.5s ease-out;
 }
 
-footer b {
+footer div a {
+    color: var(--color-lightest);
+    text-decoration: none;
+}
+
+footer div .github-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+footer glow {
     text-shadow: 0 0 5px;
     font-weight: bold;
-}
-
-footer:hover {
-    color: #0d0d2b;
-    background-color: #00ffc8e6;
-    box-shadow: 0 0 30px #00ffc8;
 }
 
 .no-select {
@@ -399,7 +443,7 @@ footer:hover {
 
 .textParticle>.particle {
     position: absolute;
-    background-color: #00ffff;
+    background-color: var(--color-lightest);
     opacity: 0;
     border-radius: 50%;
     animation: particle-movement 3s ease-in infinite;
@@ -431,7 +475,7 @@ footer:hover {
 }
 
 .options .icon {
-    transition: 0.5s ease-in-out;
+    transition: 0.5s ease-out;
     text-shadow: 0 0 20px;
 }
 
@@ -443,28 +487,28 @@ footer:hover {
     top: 0px;
     right: 0px;
     margin: 5px;
-    background-color: #03082255;
+    background-color: #0009;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 255, 200, 0.7);
+    border: 1px solid var(--color-medium-dark);
     border-radius: 10px;
     padding: 10px;
     z-index: 1000;
     min-width: 20rem;
-    box-shadow: 0 0 20px rgba(0, 255, 198, 0.3);
+    box-shadow: 0 0 20px var(--color-medium-dark);
     pointer-events: none;
     opacity: 0;
     transform: translateX(10px) translateY(-10px);
-    transition: 0.5s ease-in-out;
+    transition: 0.5s ease-out;
 }
 
 .options .menu .header {
     display: block;
-    width: 100%;
+    width: 50%;
     margin-bottom: 10px;
     padding: 0 5px;
     font-weight: bold;
-    text-align: left;
-    border-bottom: 1px solid #fff;
+    text-align: center;
+    border-bottom: 1px solid #fff8;
     font-family: 'Orbitron', Arial, sans-serif;
     text-transform: uppercase;
     color: #fff;
@@ -528,7 +572,7 @@ input[type="checkbox"] {
 }
 
 input:checked+.slider {
-    background-color: #00ffc6;
+    background-color: var(--color-medium-light);
 }
 
 input:checked+.slider:before {
@@ -536,12 +580,12 @@ input:checked+.slider:before {
 }
 
 .loading {
-    margin: 80px 0;
+    margin: 80px auto;
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    display: inline-block;
-    border-top: 3px solid #00ffc6;
+    display: block;
+    border-top: 3px solid var(--color-lightest);
     border-right: 3px solid transparent;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
@@ -563,16 +607,16 @@ input:checked+.slider:before {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: hsla(180, 100%, 70%, 0.2);
+    background-color: hsla(var(--Main-Hue), 100%, 70%, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: hsla(180, 100%, 70%, 0.8);
+    background-color: hsla(var(--Main-Hue), 100%, 70%, 0.8);
 }
 
 ::-webkit-scrollbar-corner,
 ::-webkit-scrollbar-track {
-    background-color: hsla(180, 100%, 70%, 0.1);
+    background-color: hsla(var(--Main-Hue), 100%, 70%, 0.1);
 }
 
 @media (max-width: 938px) {
@@ -681,7 +725,7 @@ input:checked+.slider:before {
         font-size: 0.95em;
     }
 
-    footer {
+    footer div {
         font-size: 0.7em;
         margin-top: 0;
         padding: 6px 10px;
@@ -711,6 +755,10 @@ input:checked+.slider:before {
 @media (max-width: 478px) {
     header h1 {
         font-size: 1.2em;
+    }
+
+    .leaderboard-item:hover {
+        border-bottom-color: var(--color-medium-dark);
     }
 }
 
