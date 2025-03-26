@@ -1,5 +1,5 @@
 :root {
-    --Main-Hue: 260;
+    --Main-Hue: 200;
     --color-lightest: hsl(var(--Main-Hue), 97%, 70%);
     --color-light: hsl(var(--Main-Hue), 66%, 61%);
     --color-medium-light: hsl(var(--Main-Hue), 46%, 52%);
