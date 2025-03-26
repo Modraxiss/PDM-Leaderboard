@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'STARBLAST';
-    src: url('../Fonts/Starblast.ttf');
+    src: url('../assets/fonts/Starblast.ttf');
     font-weight: normal;
     font-style: normal
 }
 
 @font-face {
     font-family: 'Starcraft';
-    src: url('../Fonts/Starcraft.ttf');
+    src: url('../assets/fonts/Starcraft.ttf');
     font-weight: normal;
     font-style: normal
 }
