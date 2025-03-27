@@ -45,18 +45,21 @@ body {
 }
 
 @keyframes background-overlay {
-     0% {
+    0% {
         transform: rotate(0deg);
-     }
-     33% {
+    }
+
+    33% {
         transform: rotate(2deg);
-     }
-     66% {
+    }
+
+    66% {
         transform: rotate(-2deg);
-     }
-     100% {
+    }
+
+    100% {
         transform: rotate(0deg);
-     }
+    }
 }
 
 main {
@@ -190,6 +193,7 @@ header h1 {
 }
 
 .leaderboard-item:hover {
+    border-bottom-color: transparent;
     background: var(--color-darker);
 }
 
@@ -231,8 +235,7 @@ header h1 {
     }
 }
 
-.leaderboard-item .playerName .subspace::after {
-    content: 'SUBSPACE';
+.leaderboard-item .playerName .subspace {
     background: linear-gradient(135deg, #6a1b9a, #9c27b0);
     color: #ffffffe6;
     padding: 4px 10px;
@@ -241,6 +244,7 @@ header h1 {
     margin-left: 12px;
     border-radius: 25px;
     box-shadow: 0 4px 8px #0003;
+    text-align: center;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 600;
@@ -250,11 +254,11 @@ header h1 {
     transform: translateY(-50%) scale(0);
     transform-origin: center left;
     opacity: 0;
-    animation: show-subspace-tag 1s ease forwards;
+    animation: show-tag 1s ease forwards;
     animation-delay: 2s;
 }
 
-@keyframes show-subspace-tag {
+@keyframes show-tag {
     0% {
         opacity: 0;
         transform: translateY(-50%) scale(0);
@@ -412,9 +416,9 @@ footer div {
     transition: 0.5s ease-out;
 }
 
-footer div a {
-    color: var(--color-lightest);
-    text-decoration: none;
+footer a div:hover {
+    color: var(--color-darker);
+    background: var(--color-lightest);
 }
 
 footer div .github-icon svg {
@@ -619,6 +623,10 @@ input:checked+.slider:before {
     background-color: hsla(var(--Main-Hue), 100%, 70%, 0.1);
 }
 
+::selection {
+    background: hsla(var(--Main-Hue), 100%, 50%, 0.3);
+}
+
 @media (max-width: 938px) {
     header h1 {
         font-size: 2em;
@@ -716,7 +724,7 @@ input:checked+.slider:before {
         font-size: 0.8em;
     }
 
-    .leaderboard-item .playerName .subspace::after {
+    .leaderboard-item .playerName .subspace {
         padding: 2px 8px;
         font-size: 0.5rem;
     }
@@ -797,6 +805,11 @@ input:checked+.slider:before {
     .leaderboard-item .playerName {
         font-size: 0.6em;
         gap: 4px;
+    }
+
+    .leaderboard-item .playerName .subspace {
+        padding: 1px 4px;
+        font-size: 0.4rem;
     }
 
     @keyframes badge-shadow {

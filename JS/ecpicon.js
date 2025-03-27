@@ -159,25 +159,6 @@ window.initECPSetup = function (initializer) {
                             l.addColorStop(0.5, "#765"),
                             l.addColorStop(1, "#CCC");
                         break;
-                    case "fullcolor":
-                        (l = t.createLinearGradient(0, 0, 0, i)),
-                            l.addColorStop(
-                                0,
-                                "hsl(" + this.hue + ",90%,50%)"
-                            ),
-                            l.addColorStop(
-                                0.5,
-                                "hsl(" + this.hue + ",90%,70%)"
-                            ),
-                            l.addColorStop(
-                                0.5,
-                                "hsl(" + this.hue + ",90%,30%)"
-                            ),
-                            l.addColorStop(
-                                1,
-                                "hsl(" + this.hue + ",90%,60%)"
-                            );
-                        break;
                     case "titanium":
                         (l = t.createLinearGradient(0, 0, 0, i)),
                             l.addColorStop(0, "#444"),
@@ -218,10 +199,16 @@ window.initECPSetup = function (initializer) {
                                     "#888"
                                 );
                         break;
+                    case "zinc":
+                        (l = t.createLinearGradient(0, 0, 0, i)),
+                            l.addColorStop(0, "#EEE"),
+                            l.addColorStop(1, "#666");
+                        break;
                     default:
                         (l = t.createLinearGradient(0, 0, 0, i)),
                             l.addColorStop(0, "#EEE"),
                             l.addColorStop(1, "#666");
+                        break;
                 }
                 if (
                     ((t.globalCompositeOperation = "source-atop"),
