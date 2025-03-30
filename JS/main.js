@@ -53,25 +53,27 @@ function createLeaderboardItem(player, rank) {
     leaderboardItem.classList.add('leaderboard-item');
 
     const color = getColorBasedOnECP(player.ecp.finish);
-    const badgeClass = rank <= 3 ? 'badge-shadow' : '';
-    const textClass = rank === 1 ? 'textParticle' : '';
+
+    const isInTop3 = rank <= 3 ? true : false;
+    const isTop1 = rank === 1 ? 'class="textParticle"' : '';
     const checkSubspace = player.id === '5a03846a0a6d212bf327f57b' ? `<span class="subspace">SUBSPACE</span>` : '';
 
     leaderboardItem.innerHTML = `
-                <div class="playerName">
-                    <img style="opacity: 0;${rank <= 3 ? `color: ${color};` : "filter: drop-shadow(2px 4px 6px #000);"}" class="ecpIcon no-select ${badgeClass}" src="" data-id="${player.id}">
-                    <span class="${textClass}">
-                        ${player.name}
-                        ${checkSubspace}
-                    </span>
-                </div>
-                <div class="status">
-                    <div class="${rank <= 3 ? `rank trophy no-select text-glow ${getRankClass(rank)}` : 'rank'}">
-                        <span>${rank}</span>
-                    </div>
-                    <div class="live-score">${player.live_rating}</div>
-                </div>
-            `;
+        <div class="playerName">
+            <img src="" alt="ecp" style="opacity: 0; ${isInTop3 ? `color: ${color}` : "filter: drop-shadow(0 0 10px #000)"}" class="ecpIcon no-select ${isInTop3 ? "badge-shadow":""}" data-id="${player.id}">
+            <span ${isTop1}>
+                ${player.name}
+                ${checkSubspace}
+            </span>
+        </div>
+        <div class="status">
+            <div class="${rank <= 3 ? `rank trophy no-select text-glow ${getRankClass(rank)}` : 'rank'}">
+                <span>${rank}</span>
+            </div>
+            <div class="live-score">${player.live_rating}</div>
+        </div>
+    `;
+
     return leaderboardItem;
 }
 
@@ -115,12 +117,12 @@ function createParticles() {
             particle.className = 'particle';
             const size = `${random(4, 8)}px`;
             particle.style.cssText = `
-                        top: ${random(20, 80)}%;
-                        left: ${random(0, 95)}%;
-                        width: 1px;
-                        height: ${size};
-                        animation-delay: ${random(0, 3)}s;
-                    `;
+                top: ${random(20, 80)}%;
+                left: ${random(0, 95)}%;
+                width: 1px;
+                height: ${size};
+                animation-delay: ${random(0, 3)}s;
+            `;
             textParticle.appendChild(particle);
         }
     }

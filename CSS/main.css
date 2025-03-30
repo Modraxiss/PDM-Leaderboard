@@ -17,6 +17,8 @@
     padding: 0;
     outline: none;
     box-sizing: border-box;
+    text-decoration: none;
+    color: currentColor;
 }
 
 body {
@@ -107,7 +109,7 @@ header h1 {
 }
 
 .region-switch button.active {
-    background-color: #ff4d4d;
+    background-color: #ff1515;
     color: #fff;
     text-shadow: 0 0 10px;
     transform: scale(1);
@@ -121,7 +123,7 @@ header h1 {
     margin: 30px auto;
     border-radius: 14px;
     background-color: var(--color-darkest);
-    box-shadow: 0 0 30px var(--color-medium-dark);
+    box-shadow: 0 0 30px var(--color-medium);
     transition: 0.8s ease-out;
 }
 
@@ -190,6 +192,7 @@ header h1 {
 
 #leaderboard-body>div:last-child {
     border-bottom: none;
+    border-radius: 0 0 14px 14px;
 }
 
 .leaderboard-item:hover {
@@ -405,7 +408,7 @@ footer div {
     padding: 10px 15px;
     margin-top: 10px;
     margin-bottom: 20px;
-    border-radius: 25px;
+    border-radius: 10px;
     font-size: 14px;
     word-spacing: 5px;
     letter-spacing: 2px;
@@ -416,14 +419,13 @@ footer div {
     transition: 0.5s ease-out;
 }
 
-footer a div:hover {
-    color: var(--color-darker);
-    background: var(--color-lightest);
+footer .link {
+    cursor: pointer;
 }
 
-footer div .github-icon svg {
-    width: 14px;
-    height: 14px;
+footer .link:hover {
+    color: var(--color-darker);
+    background: var(--color-lightest);
 }
 
 footer glow {
@@ -479,6 +481,10 @@ footer glow {
 }
 
 .options .icon {
+    color: var(--color-darkest);
+    background-color: var(--color-lightest);
+    border-radius: 10px;
+    padding: 4px 6px;
     transition: 0.5s ease-out;
     text-shadow: 0 0 20px;
 }
@@ -491,8 +497,8 @@ footer glow {
     top: 0px;
     right: 0px;
     margin: 5px;
-    background-color: #0009;
-    backdrop-filter: blur(10px);
+    background-color: hsla(var(--Main-Hue), 43%, 8%, 0.6);
+    backdrop-filter: blur(5px);
     border: 1px solid var(--color-medium-dark);
     border-radius: 10px;
     padding: 10px;
@@ -587,7 +593,7 @@ input:checked+.slider:before {
     margin: 80px auto;
     width: 48px;
     height: 48px;
-    border-radius: 50%;
+    border-radius: 50% !important;
     display: block;
     border-top: 3px solid var(--color-lightest);
     border-right: 3px solid transparent;
@@ -734,9 +740,8 @@ input:checked+.slider:before {
     }
 
     footer div {
-        font-size: 0.7em;
-        margin-top: 0;
-        padding: 6px 10px;
+        font-size: 0.5em;
+        padding: 6px 8px;
         word-spacing: 2.5px;
         letter-spacing: 1.5px;
     }
