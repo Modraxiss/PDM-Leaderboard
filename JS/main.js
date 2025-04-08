@@ -56,7 +56,7 @@ function createLeaderboardItem(player, rank) {
 
     const isInTop3 = rank <= 3 ? true : false;
     const isTop1 = rank === 1 ? 'class="textParticle"' : '';
-    const checkSubspace = player.id === '5a03846a0a6d212bf327f57b' ? `<span class="subspace">SUBSPACE</span>` : '';
+    const checkSubspace = player.id === '5a03846a0a6d212bf327f57b' ? `<span class="subspace">SUBSPACE ECP</span>` : '';
 
     leaderboardItem.innerHTML = `
         <div class="playerName">
