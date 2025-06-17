@@ -145,13 +145,13 @@ window.initECPSetup = function (initializer) {
             (t.prototype.drawMaterial = function (t, e, i) {
                 var s, l, n, a, o, r, h, O, u, d, c;
                 switch (this.finish) {
-                    case "x27":
-                        (l = t.createLinearGradient(0, 0, 0, i)),
-                            l.addColorStop(0, "hsla(220,100%,30%)"),
-                            l.addColorStop(0.5, "hsla(200,100%,70%)"),
-                            l.addColorStop(0.5, "hsla(220,100%,40%)"),
-                            l.addColorStop(1, "hsla(200,100%,70%)");
-                        break;
+                    // case "x27":
+                    //     (l = t.createLinearGradient(0, 0, 0, i)),
+                    //         l.addColorStop(0, "hsla(220,100%,30%)"),
+                    //         l.addColorStop(0.5, "hsla(200,100%,70%)"),
+                    //         l.addColorStop(0.5, "hsla(220,100%,40%)"),
+                    //         l.addColorStop(1, "hsla(200,100%,70%)");
+                    //     break;
                     case "alloy":
                         (l = t.createLinearGradient(0, 0, 0, i)),
                             l.addColorStop(0, "#68A"),
