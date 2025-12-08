@@ -14,7 +14,7 @@ The **PDM Leaderboard** is a real-time ranking system for the "Pro Deathmatch" m
 Check out the leaderboard here: [PDM Leaderboard](https://modraxiss.github.io/PDM-Leaderboard/)
 
 ## Contribution
-Feel free to contribute by submitting issues or pull requests. For inquiries, contact **Modraxis (aka Basit) on Discord: m.basit**.
+Feel free to contribute by submitting issues or pull requests. For inquiries, contact **Modraxis (aka Basit) on Discord: muhammad.basit**.
 
 ## License
 This project is open-source and available under the MIT License.
